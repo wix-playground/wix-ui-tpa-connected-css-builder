@@ -34,7 +34,8 @@
   "author": "Vytenis Urbonavicius",
   "license": "MIT",
   "dependencies": {
-    "args": "^5.0.1"
+    "args": "^5.0.1",
+    "find-node-module": "^1.0.0"
   },
   "devDependencies": {
     "@types/args": "^3.0.0",

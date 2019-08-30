@@ -5,7 +5,20 @@ import * as path from 'path'
  * CLI argument names
  */
 export enum ECliArgument {
-  // TODO: Not finished
+  /**
+   * Path to either existent or new target CSS files to put rules to.
+   */
+  outputCssPath = 'outputCssPath',
+
+  /**
+   * Path to JSON file containing settings panel connection rules.
+   */
+  connectionRulesPath = 'connectionRulesPath',
+
+  /**
+   * Target project root address (where package.json is located).
+   */
+  projectRoot = 'projectRoot',
 }
 
 /**
@@ -17,7 +30,20 @@ export interface IGeneratorArgs {
    */
   [argName: string]: string
 
-  // TODO: Not finished
+  /**
+   * Path to either existent or new target CSS files to put rules to.
+   */
+  outputCssPath: string
+
+  /**
+   * Path to JSON file containing settings panel connection rules.
+   */
+  connectionRulesPath: string
+
+  /**
+   * Target project root address (where package.json is located).
+   */
+  projectRoot: string
 }
 
 /**
@@ -33,7 +59,9 @@ export class Cli {
    * Stores current CLI argument values
    */
   private args: IGeneratorArgs = {
-    // TODO: Not finished
+    outputCssPath: path.resolve(process.cwd(), 'dist', 'settings.css'),
+    connectionRulesPath: path.resolve(process.cwd(), 'settings-panel.json'),
+    projectRoot: path.resolve(process.cwd()),
   }
 
   /**
@@ -41,11 +69,15 @@ export class Cli {
    */
   public constructor() {
     args
-      .command('build', 'Start scanning sources and building CSS', (name, sub, options) => {
+      .option('o', 'outputCss', 'Path to either existent or new target CSS files to put rules to.')
+      .option('c', 'connectionRules', 'Path to JSON file containing settings panel connection rules.')
+      .option('r', 'projectRoot', 'Target project root address (where package.json is located).')
+      .command('build', 'Read settings connection config and patch CSS.', (name, sub, options) => {
         this.launched = true
         this.storeArguments(options)
       })
-      .example('wutc-css-builder build', 'Generates CSS for project in CWD.')
+
+      .example('wutc-css-builder build', 'Updates CSS with settings-specific rules.')
 
     args.parse(process.argv, {
       name: 'wutc-css-builder',
