@@ -1,4 +1,5 @@
-import {Cli} from './cli'
+import {Cli, ECliArgument} from './cli'
+import {StyleBuilder} from './style-builder'
 
 /**
  * Launches CSS build based on CLI arguments
@@ -10,8 +11,12 @@ export class Launcher extends Cli {
   constructor() {
     super()
 
-    // tslint:disable-next-line
-    console.log('Not finished!')
-    // TODO: Not finished
+    const builder = new StyleBuilder(
+      this.getArgument(ECliArgument.projectRoot),
+      this.getArgument(ECliArgument.connectionRulesPath),
+      this.getArgument(ECliArgument.outputCssPath),
+    )
+
+    builder.build()
   }
 }

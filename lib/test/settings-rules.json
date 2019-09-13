@@ -1,0 +1,12 @@
+{
+  "Text": {
+    "firstRule": {
+      "MainTextColor": "red",
+      "MainTextFont": "\"font({theme: 'Body-M', size: '50px'})\""
+    },
+    "secondRule": {
+      "MainTextColor": "green",
+      "MainTextFont": "\"font({theme: 'Body-M', size: '10px'})\""
+    }
+  }
+}
