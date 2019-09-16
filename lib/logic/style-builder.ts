@@ -43,7 +43,7 @@ export class StyleBuilder {
         Object.entries(variables).forEach(([variableName, rule]) => {
           if (structure[componentName] && structure[componentName][variableName]) {
             structure[componentName][variableName].forEach(({mediaQuery, selector, declaration}) => {
-              selector = `.${namespace} ${selector}`
+              selector = `.${namespace}${selector}`
               mediaQuery = mediaQuery || NO_MEDIA_QUERY
               map[mediaQuery] = map[mediaQuery] || {}
               map[mediaQuery][selector] = map[mediaQuery][selector] || []
