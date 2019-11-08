@@ -13,8 +13,8 @@ export class Launcher extends Cli {
 
     const builder = new StyleBuilder(
       this.getArgument(ECliArgument.projectRoot),
-      this.getArgument(ECliArgument.connectionRulesPath),
-      this.getArgument(ECliArgument.outputCssPath),
+      this.getArgument(ECliArgument.connectionRules),
+      this.getArgument(ECliArgument.outputCss),
     )
 
     builder.build()

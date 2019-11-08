@@ -8,12 +8,12 @@ export enum ECliArgument {
   /**
    * Path to either existent or new target CSS files to put rules to.
    */
-  outputCssPath = 'outputCssPath',
+  outputCss = 'outputCss',
 
   /**
    * Path to JSON file containing settings panel connection rules.
    */
-  connectionRulesPath = 'connectionRulesPath',
+  connectionRules = 'connectionRules',
 
   /**
    * Target project root address (where package.json is located).
@@ -33,12 +33,12 @@ export interface IGeneratorArgs {
   /**
    * Path to either existent or new target CSS files to put rules to.
    */
-  outputCssPath: string
+  outputCss: string
 
   /**
    * Path to JSON file containing settings panel connection rules.
    */
-  connectionRulesPath: string
+  connectionRules: string
 
   /**
    * Target project root address (where package.json is located).
@@ -59,8 +59,8 @@ export class Cli {
    * Stores current CLI argument values
    */
   private args: IGeneratorArgs = {
-    outputCssPath: path.resolve(process.cwd(), 'dist', 'settings.css'),
-    connectionRulesPath: path.resolve(process.cwd(), 'settings-panel.json'),
+    outputCss: path.resolve(process.cwd(), 'dist', 'settings.css'),
+    connectionRules: path.resolve(process.cwd(), 'settings-panel.json'),
     projectRoot: path.resolve(process.cwd()),
   }
 
@@ -69,9 +69,21 @@ export class Cli {
    */
   public constructor() {
     args
-      .option('o', 'outputCss', 'Path to either existent or new target CSS files to put rules to.')
-      .option('c', 'connectionRules', 'Path to JSON file containing settings panel connection rules.')
-      .option('r', 'projectRoot', 'Target project root address (where package.json is located).')
+      .option(
+        ['o', 'outputCss'],
+        'Path to either existent or new target CSS files to put rules to.',
+        this.args.outputCss,
+      )
+      .option(
+        ['c', 'connectionRules'],
+        'Path to JSON file containing settings panel connection rules.',
+        this.args.connectionRules,
+      )
+      .option(
+        ['r', 'projectRoot'],
+        'Target project root address (where package.json is located).',
+        this.args.projectRoot,
+      )
       .command('build', 'Read settings connection config and patch CSS.', (name, sub, options) => {
         this.launched = true
         this.storeArguments(options)
