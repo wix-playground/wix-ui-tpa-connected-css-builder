@@ -37,11 +37,12 @@ describe('StyleBuilder', () => {
 
   it('generates multiple selectors per rule', () => {
     const style = getOutput()
+
     const selectors = [
-      '.vText-firstRule .usktwiduek0i0cicr.s188[data-text185136048-mobile][data-text185136048-typography=smallTitle]',
-      '.vText-firstRule .usktwiduek0i0cicr.s188[data-text185136048-mobile][data-text185136048-typography=runningText]',
-      '.vText-secondRule .usktwiduek0i0cicr.s188[data-text185136048-mobile][data-text185136048-typography=listText]',
-      '.vText-secondRule .usktwiduek0i0cicr.s188[data-text185136048-mobile][data-text185136048-typography=largeTitle]',
+      '.vText-firstRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=smallTitle]',
+      '.vText-firstRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=runningText]',
+      '.vText-secondRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=listText]',
+      '.vText-secondRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=largeTitle]',
     ]
 
     selectors.forEach(selector => {

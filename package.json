@@ -35,7 +35,8 @@
   "license": "MIT",
   "dependencies": {
     "args": "^5.0.1",
-    "find-node-module": "^1.0.0"
+    "find-node-module": "^1.0.0",
+    "wix-ui-tpa-connected": "^2.0.2"
   },
   "devDependencies": {
     "@types/args": "^3.0.0",
@@ -56,8 +57,7 @@
     "typescript": "^3.4.1",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
-    "webpack-node-externals": "^1.7.2",
-    "wix-ui-tpa-connected": "^1.0.202"
+    "webpack-node-externals": "^1.7.2"
   },
   "publishConfig": {}
 }
