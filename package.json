@@ -1,6 +1,6 @@
 {
   "name": "wix-ui-tpa-connected-css-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tool for generating WUTC CSS based on usage static analysis",
   "main": "dist/index.js",
   "bin": {

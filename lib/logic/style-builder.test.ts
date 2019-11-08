@@ -39,14 +39,14 @@ describe('StyleBuilder', () => {
     const style = getOutput()
 
     const selectors = [
-      '.vText-firstRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=smallTitle]',
-      '.vText-firstRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=runningText]',
-      '.vText-secondRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=listText]',
-      '.vText-secondRule.u40599u37tk2q1rxmp.s220[data-text396940269-mobile][data-text396940269-typography=largeTitle]',
+      /\.vText\-firstRule\.u40599u.{11,11}\.s[0-9]{3,3}\[data\-text396940269\-mobile\]\[data\-text396940269\-typography=smallTitle\]/,
+      /\.vText\-firstRule\.u40599u.{11,11}\.s[0-9]{3,3}\[data\-text396940269\-mobile\]\[data\-text396940269\-typography=runningText\]/,
+      /\.vText\-secondRule\.u40599u.{11,11}\.s[0-9]{3,3}\[data\-text396940269\-mobile\]\[data\-text396940269\-typography=listText\]/,
+      /\.vText\-secondRule\.u40599u.{11,11}\.s[0-9]{3,3}\[data\-text396940269\-mobile\]\[data\-text396940269\-typography=largeTitle\]/,
     ]
 
     selectors.forEach(selector => {
-      expect(style.includes(selector)).toBeTruthy()
+      expect(style.match(selector)).toBeTruthy()
     })
   })
 
