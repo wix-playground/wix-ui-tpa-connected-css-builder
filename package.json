@@ -35,7 +35,7 @@
   "dependencies": {
     "args": "^5.0.1",
     "find-node-module": "^1.0.0",
-    "wix-ui-tpa-connected": "^2.0.2"
+    "@wix/wix-ui-tpa-connected": "^2.0.2"
   },
   "devDependencies": {
     "@types/args": "^3.0.0",
